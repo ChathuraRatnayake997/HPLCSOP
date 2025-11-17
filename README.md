@@ -7,10 +7,7 @@ A modern, web-based, and easily accessible guide for operating High-Performance 
 ---
 
 ## About The Project
-
-This digital SOP provides a comprehensive, step-by-step guide for the entire HPLC workflow, from initial safety precautions to final data analysis and system shutdown. It is designed to be a reliable resource for laboratory personnel, students, and researchers.
-
-*(Feel free to replace this with your own updated screenshot!)*
+<img width="749" height="242" alt="Screenshot 2025-11-17 205417" src="https://github.com/user-attachments/assets/05aa6da7-d0d2-416e-a5ec-5b45c04e648c" />
 
 ### Key Features
 
