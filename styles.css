@@ -1,0 +1,184 @@
+/* Google Fonts Import - Simplified */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+/* CSS Custom Properties - Simplified Font System */
+:root {
+    /* Colors */
+    --paper-bg: #fdfaf2;
+    --text-color: #222;
+    --active-bg: #222;
+    --active-text: #fdfaf2;
+    --border-color: #ccc;
+}
+
+body {
+    background-color: #dcdcdc;
+    background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAUABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAT/xAAjEAACAgICAAcAAAAAAAAAAAABAgMEABEFIQYSExQxUWGB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAaEQACAgMAAAAAAAAAAAAAAAABAgARAxIh/9oADAMBAAIRAxEAPwCU2L4qP4GzW1EJUuUqGj5gW30O+sV2Y+rW6Nmqy3JzYlQZJFkYdRO9695+cZ4lWWSvIu2AII+sW+b1a2B6dJbEUsYJLLG4BI7637i+dk01vYK5n//Z');
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+.document {
+    font-family: 'Special Elite', monospace;
+    background: var(--paper-bg);
+    width: 100%;
+    max-width: 8.5in;
+    min-height: 11in;
+    padding: 1in;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    line-height: 2;
+    color: var(--text-color);
+    border: 1px solid #ddd;
+}
+
+/* Navigation / Table of Contents - Vintage Typewriter Style */
+.toc-nav {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+.toc-link {
+    flex-grow: 1;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    background: rgba(0,0,0,0.02);
+    border-right: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Special Elite', monospace !important;
+    position: relative;
+    overflow: hidden;
+}
+.toc-link:last-child { border-right: none; }
+.toc-link:hover { 
+    background: rgba(0,0,0,0.8);
+    color: white;
+}
+
+/* Simple TOC Highlighting - AI Studio Style */
+.toc-nav {
+    background: rgba(255,255,255,0.1);
+}
+
+/* TOC Link Base Styling */
+.toc-link {
+    flex-grow: 1;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    background: rgba(0,0,0,0.02);
+    border-right: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Special Elite', monospace !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* AI Studio Style - Clear Persistent Highlighting */
+.toc-link.active {
+    /* Black highlighting - AI Studio style */
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    /* No border for clean appearance */
+    border: none !important;
+    /* Subtle box shadow for depth without border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1) !important;
+    /* Make text slightly larger */
+    font-size: 1.1em !important;
+    /* White text shadow for contrast */
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.3) !important;
+}
+
+.toc-link:hover { 
+    background: rgba(0,0,0,0.8);
+    color: white;
+}
+
+.toc-link:focus {
+    outline: 2px solid #007acc;
+    outline-offset: -2px;
+}
+
+/* Page Content Styling */
+.content-page {
+    display: none; /* All pages are hidden by default */
+}
+.content-page.active-page {
+    display: block; /* The active page is shown */
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3, h4 { 
+    text-transform: uppercase; 
+    font-family: 'Special Elite', monospace !important;
+}
+h1 { 
+    text-align: center; 
+    font-size: 2em; 
+    margin-bottom: 24px; 
+}
+h2 { 
+    border-bottom: 1px solid #aaa; 
+    padding-bottom: 8px; 
+    margin-top: 48px; 
+}
+h3 { font-size: 1.2em; }
+h4 { font-size: 1em; text-decoration: underline; }
+
+/* Ensure ALL content uses vintage typewriter font */
+.document, p, ul, li, strong, em, span, div {
+    font-family: 'Special Elite', monospace !important;
+}
+
+p, ul { margin-bottom: 24px; }
+ul { padding-left: 40px; }
+li { margin-bottom: 12px; }
+
+/* Typography Elements with Vintage Typewriter Font */
+strong, b { 
+    font-weight: bold;
+    font-family: 'Special Elite', monospace !important;
+}
+
+em, i { 
+    font-style: italic;
+    font-family: 'Special Elite', monospace !important;
+}
+
+code {
+    font-family: 'Courier New', 'Lucida Console', monospace;
+    background-color: rgba(0,0,0,0.1);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.equation { 
+    text-align: center; 
+    font-size: 1.2em; 
+    padding: 20px; 
+    border: 1px solid var(--border-color); 
+    background: rgba(0,0,0,0.02); 
+    margin: 30px 0; 
+    font-family: 'Special Elite', monospace !important;
+}
+.equation strong { 
+    font-family: 'Special Elite', monospace !important; 
+    font-style: normal;
+    font-weight: bold;
+}
+
+.highlight { background-color: rgba(255, 221, 0, 0.4); }
+::selection { background-color: rgba(255, 221, 0, 0.4); }

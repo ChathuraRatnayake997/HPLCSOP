@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Comprehensive Guide to HPLC for Researchers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="document">
+        <h1>A Comprehensive Guide to HPLC</h1>
+
+        <!-- The Navigation / TOC -->
+        <nav class="toc-nav">
+            <a class="toc-link" data-target="part1">Intro</a>
+            <a class="toc-link" data-target="part2">Solvent Preparation</a>
+            <a class="toc-link" data-target="part3">Start the instrument</a>
+            <a class="toc-link" data-target="part4">Connecting the instrument</a>
+            <a class="toc-link" data-target="part5">Instrument Preparation, Purge, and Baseline Monitoring</a>
+            <a class="toc-link" data-target="part6">Getting Ready to Analyse Samples</a>
+            <a class="toc-link" data-target="part7">Starting an Analysis</a>
+            <a class="toc-link" data-target="part8">Processing Data</a>
+            <a class="toc-link" data-target="part9">System Shutdown</a>
+            <a class="toc-link" data-target="part10">Routine Troubleshooting</a>
+        </nav>
+
+        <!-- Container for all content pages -->
+        <main id="content-container">
+            
+            <!-- Page 1: Introduction -->
+            <section id="part1" class="content-page active-page">
+                <h2><strong>Important Notice</strong></h2>
+                <p><strong>This document is intended for educational and training purposes only.</strong> The procedures, instructions, and information contained herein are provided as a general guide for learning the principles of HPLC instrument operation and software navigation. 
+                    They are not a substitute for the official manufacturer's documentation, specific standard operating procedures (SOPs) from your laboratory, or comprehensive hands-on training. For operational use: Always consult and follow the official manufacturer's user manuals and safety guidelines for your specific instrument and software version.
+                     Adhere to all validated laboratory-specific SOPs and quality control procedures. Ensure you have received proper training and authorization before operating any analytical instrumentation. The authors and contributors are not responsible for any errors or omissions, or for any outcomes resulting from the application of the information in this educational document.</p>
+                <h2>Part 1: Introduction to Chromatography</h2>
+                <p>At its core, chromatography is a physical method of separation that distributes components between two phases: a stationary phase and a mobile phase. In High-Performance Liquid Chromatography (HPLC), the mobile phase is a liquid solvent pumped at high pressure, and the stationary phase is an immobilized solid packed into a column.</p>
+                <h3>Things to Remember</h3>
+                <p> 1. Sample preparation: Ensure that the samples are properly prepared and filtered to avoid any blockages in the HPLC system.</p>
+                <p> 2.Mobile phase preparation: The mobile phase should be prepared according to the recommended guidelines and filtered using appropriate methods. It is important to check the pH and degas the mobile phase before use to prevent bubble formation in the system.</p>
+                <p> 3. Column selection: The appropriate column should be selected based on the type of analyte, its properties, and the desired separation. It is important to condition the column before use to ensure optimal performance.</p>
+                <p> 4. Flow rate: The flow rate of the mobile phase should be set according to the column specifications and the desired separation. It is important to avoid high flow rates that could damage the column or cause excessive backpressure.</p>
+                <p> 5. Injection volume: The injection volume should be optimized based on the sample concentration and the sensitivity of the detection method.</p>
+                <p> 6. Detector selection: The detector should be selected based on the analyte's properties and the required sensitivity of the detection method.</p>
+                <p> 7. Calibration: It is important to calibrate the system and perform system suitability tests to ensure accurate and reliable results.</p>
+                <p> 8. Safety: Always follow the manufacturer's guidelines and recommended safety protocols when operating an HPLC instrument, including the use of personal protective equipment (PPE) and proper waste disposal.</p>
+                <p> 9. By considering these factors, you can help ensure that your HPLC instrument operates effectively and provides reliable results.</p>
+                <h3>Instrument</h3>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/0sop.png" alt="HPLC (Thermo Fisher HPLC UltiMate 3000) ." style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">HPLC (Thermo Fisher HPLC UltiMate 3000)</figcaption>
+                </figure>
+            </section>
+
+            <!-- Page 2: Solvent Preparation -->
+            <section id="part2" class="content-page">
+                <h2>Part 2: Solvent Preparation</h2>
+                <p>Proper solvent preparation is crucial for successful HPLC analysis. The quality of your mobile phase directly impacts separation efficiency, column lifespan, and data reproducibility.</p>
+
+                <h3>Solvent Selection Criteria</h3>
+                <ul>
+                    <li><strong>Purity:</strong> Use HPLC-grade or LC-MS-grade solvents with minimal impurities</li>
+                    <li><strong>Compatibility:</strong> Ensure solvents are compatible with your column chemistry and detector</li>
+                    <li><strong>UV Transparency:</strong> For UV detection, solvents should have minimal absorbance at the detection wavelength</li>
+                    <li><strong>Viscosity:</strong> Lower viscosity solvents reduce backpressure and improve flow</li>
+                </ul>
+
+                <h3>Mobile Phase Components</h3>
+                <p>The mobile phase typically consists of two or more components:</p>
+                <ul>
+                    <li><strong>Water:</strong> Use HPLC-grade water (18.2 MΩ·cm resistivity) for best results</li>
+                    <li><strong>Organic Modifier:</strong> Methanol or acetonitrile are most common</li>
+                    <li><strong>Buffer Components:</strong> Maintain pH and ionic strength</li>
+                    <li><strong>Additives:</strong> pH modifiers, ion-pairing agents, or screening agents as needed</li>
+                </ul>
+
+                <h3>Buffer Preparation</h3>
+                <p>When pH control is required, prepare buffers before adding organic solvents:</p>
+                <ol>
+                    <li>Dissolve the buffer salt in HPLC-grade water</li>
+                    <li>Adjust pH to the desired value using acid or base</li>
+                    <li>Bring to final volume with HPLC-grade water</li>
+                    <li>Filter through a 0.2 μm filter before adding organic modifier</li>
+                    <li>The preparation of a buffer solution for HPLC depends on the specific requirements of the analysis. If you are using solid-state chemicals to prepare buffer solution, the buffer solution should be filtered using a 0.2-micron filter to remove any particulate matter that can interfere with the HPLC system. </li>
+                </ol>
+                <h3>Preparation of Seal Wash</h3>
+                <p>To prolong the life of the pump seals and pistons by preventing the crystallization of buffer salts and the accumulation of abrasive particles.</p>
+                    <li>Required Chemicals & Glassware</li>
+                    <ul>
+                        <li>HPLC grade Methanol</li>
+                        <li>10 ml Pipet and Pipet tips</li>
+                        <li>100 ml Volumetric Flask and Cap</li>
+                        <li>100ml Beaker</li>
+                    </ul>
+                <p>1.Clean the glassware with 0.2 µm filtered ultra-pure water.</p>
+                <p>2.Bring to final volume with HPLC-grade water</p>
+                    <p>3.Take the beaker and wash it with some methanol (we can reuse this methanol for non-sensitive purposes.)</p>
+                    <p>4.Add some methanol to a beaker. (about 15 ml)</p>
+                    <p>5.Measure 10ml of Methanol and add it to the Volumetric flask</p>
+                    <p>6.Mix the solution and top up the volumetric flask with filtered ultra-pure water and mix it thoroughly.</p>
+                    <p>7.Clean the HPLC seal wash bottle with filtered ultra-pure water.</p>
+                    <p>8.Clean the HPLC seal wash bottle with the previously made seal wash solution.</p>
+                    <p>9.Add the rest of the Seal wash solution to the HPLC seal wash bottle.</p>
+                <h3>Solvent Mixing and Degassing</h3>
+                <p>Proper mixing and degassing are essential:</p>
+                <ul>
+                    <li><strong>Mixing Ratios:</strong> Prepare mixtures by volume, not weight</li>
+                    <li><strong>Degassing:</strong> Remove dissolved gases using helium sparging, vacuum filtration, or online degassing</li>
+                    <li><strong>Equilibration:</strong> Allow solvents to reach room temperature before use</li>
+                </ul>
+                <h3>Adding solvents to the bottles</h3>
+                <p>There are six HPLC solvent bottles in the solvent rack including one extra bottle. Five solvents should be added before starting the instrument. above-mentioned five solvents, four solvents are for analysis and one for pump cleaning purposes. Bottles are named and labeled for user-friendliness. </p>
+                <p>Common Solvents that are used in this lab for HPLC are as follows:</p>
+                <ul>
+                    <li>A – HPLC Grade Methanol (500ml)</li>
+                    <li>B – HPLC Grade ACN (500ml)</li>
+                    <li>C – 0.5% Formic buffer (500ml)</li>
+                    <li>D – ultra-Pure water (500ml) </li>
+                    <li>SMALL BOTTLE is for the Seal wash solution. Also can use 10% Methanol  </li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/35sop.png" alt="Rear panel of HPLC instrument showing power switches." style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Power switch placements of the instrument</figcaption>
+                </figure>
+                <p>Above A, B, C, and D HPLC Bottles can be identified by the labels on the bottles (yellow circles fig 1). And the cap of the bottle can be identified by the small tag with the English letter in the liquid line/small pipeline. </p>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/36sop.png" alt="Rear panel of HPLC instrument showing power switches." style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Power switch placements of the instrument</figcaption>
+                </figure>
+                </ul>
+                <h3>Safety Considerations</h3>
+                <ul>
+                    <li>Handle solvents in a fume hood when possible</li>
+                    <li>Wear appropriate personal protective equipment</li>
+                    <li>Store solvents in proper containers away from heat and ignition sources</li>
+                    <li>Label all solvent containers clearly with contents, concentration, and date</li>
+                </ul>
+            </section>
+
+            <!-- Page 3: Start the instrument -->
+            <section id="part3" class="content-page">
+                <h2>Part 3: Start the instrument</h2>
+                
+                <h3>1.0 Instrument Startup and Initialization</h3>
+                
+                <h5>1.1 Prerequisites</h5>
+                <ul>
+                    <li>Ensure all power cables are securely connected to the UPS (Uninterruptible Power Supply) and wall outlets.</li>
+                    <li>Verify that the instrument and computer are in a ready state for startup.</li>
+                </ul>
+
+                <h5>1.2 Steps</h5>
+                <ol>
+                    <li>Activate the main power by switching on the UPS.</li>
+                    <li>Switch on the Instrument Terminal Panel power switch.</li>
+                    <li>Power on the Computer.</li>
+                    <li>Proceed to the rear panels of the instrument compartments and turn on the power switches for the following modules in sequence:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Pump</li>
+                            <li>Auto-sampler</li>
+                            <li>Column Compartment</li>
+                            <li>UV/Fluorescence Detector</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/1sop.png" alt="Rear panel of HPLC instrument showing power switches." style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Power switch placements of the instrument</figcaption>
+                </figure>
+
+                <ol start="5">
+                    <li>Visually confirm that each module has successfully initialized.
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Inspect the status indicators on all detector compartment front screens.</li>
+                            <li>For each compartment, confirm the following:
+                                <ul style="padding-left: 40px; margin-top: 10px;">
+                                    <li>The Power indicator is illuminated in Blue.</li>
+                                    <li>The Status indicator is illuminated in Green.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Exception:</strong> The Status indicator for the Variable Wavelength Detector (VWD) will be Red. This is expected behavior.</li>
+                        </ol>
+
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/2.1sop.png" alt="status LED lights" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">status LED lights.</figcaption>
+                </figure>
+
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/2sop.png" alt="successful startup indicators on front screens" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">successful startup indicators on front screens.</figcaption>
+                </figure>
+                    </li>
+                </ol>
+
+                <h5> 1.3 Completion</h5>
+                <p>The instrument and all specified compartments are powered on. The system is now initializing and is ready for the next procedure.</p>
+            </section>
+
+            <!-- Page 4: Connecting the instrument -->
+            <section id="part4" class="content-page">
+                <h2>Part 4: Connecting the instrument</h2>
+
+                <h4>2.0 Connecting the instrument.</h4>
+
+                <h5>2.1 Prerequisites</h5>
+                <ul>
+                    <li>The instrument and all compartments (Pump, Auto-sampler, Column Compartment, Detector) must be powered on.</li>
+                    <li>The computer must be turned on and at the desktop screen</li>
+                </ul>
+
+                <h5>2.2 Steps</h5>
+                <ol>
+                    <li>Log in to the computer and ensure you are at the operating system's desktop.</li>
+                    <li>Launch the Service Manager:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Locate and open the Search Bar (e.g., Windows Search next to the Start Menu).</li>
+                            <li>Type "Service Manager" into the search bar.</li>
+                            <li>From the search results, double-click on the Service Manager application to launch it.</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/3sop.png" alt="Service Manager in Search Bar" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Service Manager in Search Bar.</figcaption>
+                </figure>
+
+                <ol start="3">
+                    <li>Start the Instrument Controller.
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Wait for the Chromeleon Service Manager window to open.</li>
+                            <li>Within the Service Manager window, press the "Start Instrument Controller" button.</li>
+                        </ol>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/4sop.png" alt="Chromeleon services manager window" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Chromeleon services manager window</figcaption>
+                </figure>
+                    </li>
+                </ol>
+                <ol start="4">
+                    <li>Verify Module Connection:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>On the Service Manager screen, check the connection status for each instrument compartment (this can be done after starting the Chromeleon software in next step).</li>
+                            <li>Confirm that the connection indicator for the Pump, Auto-sampler, Column Compartment and and Detectors has turned Green on the front screen of the instrument.</li>
+                        </ol>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/5sop.png" alt="Chromeleon services manager window" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Connection indicator is illuminated in Green </figcaption>
+                </figure>
+                    </li>
+                </ol>
+
+                <h5>2.3 Completion</h5>
+                <p>All instrument modules show a green connection status in the Chromeleon Service Manager. The system is now online and ready for method creation or sequence execution within the Chromeleon client software.</p>
+            </section>
+
+            <!-- Page 5: Instrument Preparation, Purge, and Baseline Monitoring -->
+            <section id="part5" class="content-page">
+                <h2>Part 5: Instrument Preparation, Purge, and Baseline Monitoring</h2>
+
+                <h4>5.0 Instrument Preparation, Purge, and Baseline Monitoring</h4>
+
+                <h5>5.1 Prerequisites</h5>
+                <ul>
+                    <li>The Chromeleon software is open, and all instrument modules show a "Connected" status in the Instruments tab.</li>
+                    <li>Mobile phases are prepared, degassed, and correctly placed at their respective solvent lines (A, B, C, D). </li>
+                    <li>A waste container is placed in the designated area to collect purge waste. </li>
+                </ul>
+
+                <h5>5.2 Steps</h5>
+                <ol>
+                    <li>Initialize UV Detector
+                         <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Instruments tab, click on the UV module.</li>
+                            <li>Set the desired Wavelength for analysis in the channel settings.</li>
+                            <li>Turn on the UV lamp by placing a tick (✓) in the appropriate check box.</li>
+                            <li><strong>Exception:</strong> The Status indicator for the Variable Wavelength Detector (VWD) will be Red. This is expected behavior.</li>
+                            <li><strong>Note:</strong> The UV lamp requires a minimum 60-minute warm-up period to stabilize before performing analysis.</li>
+                        </ol>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/7sop.png" alt="UV tab" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">UV Detector tab</figcaption>
+                </figure>
+                    </li>
+                    <li> Verify Module Connection
+                        <ul>
+                            <li>While the UV lamp is warming up, confirm that the Pump, Sampler, and Column Oven modules all show a status of "Connected".</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/8sop.png" alt="Module Connection" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Checking Pump, Sampler and Column Connection</figcaption>
+                </figure>
+
+                <ol start="3">
+                    <li>Purge the Pump and Solvent Lines.
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Open the Pump Compartment:
+                                <ul>
+                                    <li>Grab the lower side of the pump module cover and pull it forward to open.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/9sop.png" alt="Open pump compartment" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Opening pump compartment</figcaption>
+                </figure>
+                                </ul>
+                            </li>
+                            <li>Open the Purge Valve:
+                                <ul>
+                                    <li>Turn the Purge valve counter-clockwise until it rotates freely and feels soft.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/10sop.png" alt="purge Valve" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">placement and opening pure valve</figcaption>
+                </figure>
+                                </ul>
+                            </li>
+                            <li>Purge Each Solvent Line (Repeat for lines D, C, B, and A):
+                                <ul>
+                                    <li>In the Chromeleon Pump module tab, locate the Eluent section.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/11sop.png" alt="Eluent section" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Eluent section</figcaption>
+                </figure>
+                                    <li>Set the value for the target solvent line (e.g., D) to 100. Press the Enter key.</li>
+                                    <li>Set the values for all other solvent lines (e.g., A, B, C) to 0.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/12sop.png" alt="Setting the values for the target solvent line" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Setting the values for the target solvent line</figcaption>
+                </figure>
+                                    <li>In the Commands section, click the box in front of the Purge command.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/13sop.png" alt="Purge command" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Purge command</figcaption>
+                </figure>
+                                    <li>A warning dialog will appear. If the purge valve has been opened, click Execute despite warnings.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/14sop.png" alt="warnings" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">warnings</figcaption>
+                </figure>
+                                    <li>Confirm that the Purge status changes to "On" and the pump motor is running.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/15sop.png" alt="Confirm that the Purge status" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Confirm that the Purge status</figcaption>
+                </figure>
+                                    <li>Allow the purge process to run for 5 minutes for each line.</li>
+                                    <li>Repeat these steps for solvent lines C, B, and A.</li>
+                                    <li><strong>Note for Line A - </strong> After purging B, C, and D, set their values to 0. The software will automatically set Line A to 100%.</li>
+                                </ul>
+                            </li>
+                            <li>Secure the System:
+                                    <li>After all lines are purged, turn the Purge valve clockwise to tighten it securely.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <ol start="4">
+                    <li>Prepare the Auto-Sampler:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Click on the Sampler tab.</li>
+                            <li>In the Start-Up section, click the Prime Syringe command. Wait for the process to finish.</li>
+                            <li>Click the Buffer Loop command. Wait for the process to finish.</li>
+                            <li>Click the Wash Needle Externally command. Wait for the process to finish.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/16sop.png" alt="Prepare the Auto-Sampler" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Preparing the Auto-Sampler</figcaption>
+                </figure>                                    
+                        </ol>
+                </ol>
+                <ol start="5">
+                    <li>Set Column Oven Temperature:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Click on the Column Oven module tab.</li>
+                            <li>In the temperature control section, enter the desired Nominal Temperature as specified by your method.</li>
+                            <li>Turn on the Temperature Control.</li>
+                            <li>Verify that the Actual Value stabilizes at the set point and the indicator turns green.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/17sop.png" alt="Set Column Oven Temperature" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Setting Column Oven Temperature</figcaption>
+                </figure>                                    
+                        </ol>
+                </ol>
+                <ol start="6">
+                    <li>Equilibrate System and Monitor Baseline:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Ensure the flow rate in the Flow/Pressure section of the Pump tab is set to 0.</li>
+                            <li>Enter the initial mobile phase composition from your instrument method in the Eluent section (e.g., B: 50%, C: 10%, D: 40%).</li>
+                            <li>Set the method's flow rate in the Flow/Pressure section (e.g., 0.3 mL/min).</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/18sop.png" alt="Changing mobile phase composition " style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Changing mobile phase composition</figcaption>
+                </figure>
+                            <li>Ensure the flow rate in the Flow/Pressure section of the Pump tab is set to 0.</li>
+                            <li>Click the small downward arrow next to the Monitor icon at the top of the interface.</li>
+                            <li>From the dropdown menu, select Monitor Baseline.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/19sop.png" alt="Running the Baseline" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Running the Baseline</figcaption>
+                </figure>      
+                            <li>In the dialog box, select the required detector channels to observe (e.g., UV channel).</li>
+                            <li>The baseline will now be displayed in the selected channel tabs and the Home tab. Allow the system sufficient time to stabilize.</li> 
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/20sop.png" alt="Select channels to observe" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Select channels to observe</figcaption>
+                </figure>                              
+                        </ol>
+                </ol>
+
+                <h5>5.3 Completion</h5>
+                <p>The UV lamp is on and warming up.</p>
+                <p>The pump and solvent lines are purged and primed.</p>
+                <p>The auto-sampler is clean and primed.</p>
+                <p>The column oven is set to the correct temperature.</p>
+                <p>The system is equilibrating with the starting mobile phase, and the baseline is being monitored.</p>
+                <p>The instrument is ready for analysis once the UV lamp is stable (after ~60 minutes) and the baseline is flat.</p>
+
+            </section>
+
+            <!-- Page 6: Getting Ready to Analyse Samples -->
+            <section id="part6" class="content-page">
+                <h2>Part 6: Getting Ready to Analyse Samples</h2>
+
+                <h4>6.0 Getting Ready to Analyse Samples</h4>
+
+                <h5>6.1 Prerequisites</h5>
+                <ul>
+                    <li>The Chromeleon software is open.</li>
+                    <li>The instrument is powered on, connected, and has a stable baseline.</li>
+                    <li>The user has a clear understanding of the analytical method parameters (e.g., gradient, flow rate, temperature, detection wavelength).</li>
+                </ul>
+
+                <h5>6.2 Steps</h5>
+                <ol>
+                    <li>Creating an Instrument Method:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Chromeleon Console, under the Instruments category, select the target instrument from the navigation pane.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/21sop.png" alt="Target instrument Selection" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Target instrument selection.</figcaption>
+                </figure>
+                            <li>From the Create menu, click Instrument Method.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/22sop.png" alt="Instrument Method" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Instrument Method.</figcaption>
+                </figure>
+                            <li>The Instrument Method Wizard will open. Complete each page and add your method information to the template in the wizard and click next to proceed to next page and after adding all information click Finish (For different information wizard template will have different pages,).</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/23sop.png" alt="Instrument Method wizard" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Instrument Method wizard.</figcaption>
+                </figure>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/24sop.png" alt="Some pages from wizard" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Some pages from wizard.</figcaption>
+                </figure>
+                            <li>The new method will open in the Chromatography Studio.</li>
+                            <li>Review and, if necessary, edit the method parameters by selecting each module view in the navigation pane.</li>
+                            <li>Save the method by clicking the Save Changes icon in the quick access toolbar. Specify a file location and a descriptive name.</li>
+                            <li>Close the Chromatography Studio.</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <ol start="3">
+                    <li>Creating a Processing Method. 
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Chromeleon Console, from the Create menu, click Processing Method.</li>
+                            <li>Select one of the predefined processing layouts and click Next.</li>
+                            <li>Enter a name for the method, select a file location, and add an optional comment.</li>
+                            <li>Click Finish to save the processing method and close the wizard. The method will open in the Chromatography Studio for further editing if required.</li>
+                        </ol>
+                    </li>
+                </ol>
+                <ol start="4">
+                    <li>Creating a Report Template:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Chromeleon Console, from the Create menu, click Report Template.</li>
+                            <li>Select one of the predefined templates and click OK.</li>
+                            <li>Select a file location and enter a file name.</li>
+                            <li>Click OK to save the report template and close the wizard. The template will open in the Report Designer for customization.</li>
+                        </ol>
+                    </li>
+                </ol>
+                <ol start="5">
+                    <li>Creating a Sequence:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Chromeleon Console, under the Instruments category, select the target instrument from the navigation pane.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/21sop.png" alt="Target instrument Selection" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Target instrument selection.</figcaption>
+                </figure>
+                            <li>From the Create menu, click Sequence. The Sequence Wizard will open.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/25sop.png" alt="Create Sequence" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Create Sequence. </figcaption>
+                </figure>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/26sop.png" alt="The Sequence Wizard" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">The Sequence Wizard. </figcaption>
+                </figure>
+                            <li>On the Injection Configuration page, complete the following settings:
+                                <ul>
+                                    <li>Pattern for Injection Name: Define the naming convention (e.g., using codes like #n for sequence number).</li>
+                                    <li>Number of Vials: Enter the total number of sample vials.</li>
+                                    <li>Injections per Vial: Specify the number of replicate injections per vial.</li>
+                                    <li>Start Position: Specify the autosampler vial position for the first sample.</li>
+                                    <li>Injection Volume: Enter the desired injection volume.</li>
+                                    <li>Rack View: (If supported) Click on a vial in the graphical view to set the start position.</li>
+                                </ul>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/27sop.png" alt="Injection Configuration" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Injection Configuration. </figcaption>
+                </figure>
+                            </li>
+                            <li>Click Next.</li>
+                            <li>On the Methods and Reporting page, assign the required methods for the sequence:
+                                <ul>
+                                    <li>Use the Browse (...) button to select the Instrument Method, Processing Method, and Report Template created in the previous sections.</li>
+                                    <li>Click Next after all methods are assigned.</li> 
+                                </ul>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/28sop.png" alt="assign the required methods" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">assign the required methods. </figcaption>
+                </figure>
+                            </li>
+                            <li>Enter an optional comment for the sequence and click Finish.</li>
+                            <li>In the Save Sequence dialog box, specify the file location, enter a file name, and click Save.</li>
+                            <li>The sequence will open. Review and modify individual injection details (e.g., name, type, position) as necessary.</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <h5>6.3 Completion</h5>
+                <p>The Instrument Method, Processing Method, Report Template, and Sequence have been created and saved.</p>
+                <p>The instrument is ready to begin data acquisition. To start the sequence, ensure it is selected in the Console and use the Start command.</p>
+
+                
+
+            </section>
+
+            <!-- Page 7: Starting an Analysis -->
+            <section id="part7" class="content-page">
+                <h2>Part 7: Starting an Analysis</h2>
+
+                <h4>7.0 Starting an Analysis.</h4>
+
+                <h5>7.1 Prerequisites</h5>
+                <ul>
+                    <li>A sequence has been created and saved.</li>
+                    <li>The instrument is powered on, all modules are connected, and the system is equilibrated.</li>
+                    <li>The mobile phase reservoirs are adequately filled.</li>
+                    <li>The waste container is empty and has sufficient capacity for the entire sequence.</li>
+                </ul>
+
+                <h5>7.2 Steps</h5>
+                <ol>
+                    <li>Starting a Sequence:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Chromeleon Console, select the Data category.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/29sop.png" alt="select the Data category." style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">select the Data category.</figcaption>
+                </figure>
+                            <li>In the navigation pane, locate and select the sequence you want to run by clicking on it. The sequence details will open in the work area.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/30sop.png" alt="navigation pane" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">navigation pane.</figcaption>
+                </figure>
+                            <li>To start the sequence (Immediate Start), Click the Start Queue button (a "play" icon) on the sequence control bar above the injection list. Check the baseline before running sequence, and remember stop baseline monitoring before running sequence.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/31sop.png" alt="Start Queue button" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Start Queue button.</figcaption>
+                </figure>
+                            <li>The sequence is now added to the queue. The software will perform an automatic Ready Check.</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <ol start="2">
+                    <li> Monitoring an Ongoing Analysis. 
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Chromeleon Console, select the Instruments category.</li>
+                            <li>Click on your instrument’s name in the navigation pane.</li>
+                            <li>In the work area, select the Home ePanel to monitor the following in real-time, The live detector signal (chromatogram).</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/32sop.png" alt="Monitoring sequence" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Monitoring sequence.</figcaption>
+                </figure>
+                            <li>For detailed module-specific monitoring, select the respective ePanel tabs (e.g., Pump to monitor pressure, Column Oven to monitor temperature).</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <h5>7.3 Completion</h5>
+                <p>The sequence is running. Data is being acquired and will be processed according to the assigned methods after the run is complete. The user should periodically check the run progress and instrument status.</p>
+
+            </section>
+
+            <!-- Page 8: Processing Data -->
+            <section id="part8" class="content-page">
+                <h2>Part 8: Processing Data</h2>
+
+                <h4>8.0  Processing Data.</h4>
+                <h5>8.1 Prerequisites</h5>
+                <ul>
+                    <li>Data acquisition for a sequence is complete.</li>
+                    <li>A processing method and report template have been created and are assigned to the sequence.</li>
+                </ul>
+
+                <h5>8.2 Steps</h5>
+                <ol>
+                    <li>Reviewing Data in the Chromatography Studio:
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Chromeleon Console, select the Data category and open the desired sequence.</li>
+                            <li>Double-click the first injection in the sequence to open the Chromatography Studio.</li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/33sop.png" alt="Chromatography Studio" style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Chromatography Studio.</figcaption>
+                </figure>
+                            <li>In the Data Processing category, select an injection from the navigation pane to view its chromatogram.</li>
+                            <li>Navigate through the injections using the Previous and Next buttons in the Navigation group on the Data Processing Home tab.</li>
+                            <li>Review the integrated chromatograms in the plot area and the corresponding peak data in the Interactive Results pane.</li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <ol start="2">
+                    <li>  Detecting and Integrating Peaks. 
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>With a representative chromatogram displayed, click the Processing tab.</li>
+                            <li>In the Detection Parameters group, click Cobra Wizard.</li>
+                            <li>Follow the wizard steps to:
+                                <ul>
+                                    <li>Select the chromatogram area for integration.</li>
+                                    <li>Define the baseline noise range.</li>
+                                    <li>Set the data smoothing width.</li>
+                                    <li>Define the minimum peak area threshold.</li>
+                                </ul>
+                            </li>
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img/34sop.png" alt="Cobra Wizard." style="width: 100%; max-width: 550px; display: block; margin: 0 auto 10px;">
+                    <figcaption style="font-style: italic;">Cobra Wizard.</figcaption>
+                </figure>
+                            <li>Select the target channel and injection type, then click Finish.</li>
+                            <li>Save the processing method (File > Save).</li>
+                        </ol>
+                    </li>
+                </ol>
+                <ol start="3">
+                    <li>  Identifying Peaks (Component Table). 
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>On the Processing tab, ensure Peak Windows is activated in the Component Table group.</li>
+                            <li>Click Component Table Wizard and follow the steps to automatically name detected peaks.</li>
+                            <li>OR To add a component manually:
+                                <ul>
+                                    <li>Click Add Component.</li>
+                                    <li>Drag a rectangle around a peak in the chromatogram.</li>
+                                    <li>Double-click the default name in the peak window tag or in the Component Table to rename it.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <ol start="4">
+                    <li>  Calibration and Quantitation. 
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>In the Injection List category, change the Type for standard injections to Calibration Standard.</li>
+                            <li>In the Level column, assign a unique level (e.g., 01, 02) to each concentration of standard.</li>
+                            <li>Enter Concentrations:
+                                <ul>
+                                    <li>In the Data Processing category, open the Processing Method pane.</li>
+                                    <li>Select the Component Table tab.</li>
+                                    <li>Enter the standard concentration for each component and level in the corresponding cells.</li>
+                                </ul>
+                            </li>
+                            <li>From the Data Processing Home tab, in the Panes group, select Calibration Plot to view the calibration curve.</li>
+                        </ol>
+                    </li>
+                </ol>
+                <ol start="5">
+                    <li>  Reporting Results. 
+                        <ol type="i" style="padding-left: 40px; margin-top: 10px;">
+                            <li>Select the Report Designer category</li>
+                            <li>Use the Navigation group on the Home tab or the navigation pane to browse through the results for each injection.</li>
+                            <li>To print the entire sequence:
+                                <ul>
+                                    <li>Go to File > Print.</li>
+                                    <li>In the Print dialog, select Apply to Current Sequence.</li>
+                                    <li>Select the printer and settings, then click Print.</li>
+                                </ul>
+                            </li>
+                            <li>To print a single injection:
+                                <ul>
+                                    <li>Select the desired injection in the navigation pane.</li>
+                                    <li>Go to File > Print.</li>
+                                    <li>Select Apply to Current Injection and proceed with printing.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <h5>8.3 Completion</h5>
+                <p>Data processing is complete.</p>
+                <p>Peaks have been integrated and identified.</p>
+                <p>A calibration curve has been established and applied.</p>
+                <p>Final reports have been generated and reviewed.</p>
+            </section>
+
+            <!-- Page 9: System Shutdown -->
+            <section id="part9" class="content-page">
+                <h2>Part 9: System Shutdown</h2>
+
+                <h4>9.0 System Shutdown</h4>
+
+                <h5>9.1 Column Flushing (CRITICAL)</h5>
+                <ul>
+                    <li>Replace buffered mobile phase with pure HPLC water.</li>
+                    <li>Gradient to 100% water, run 15–20 min.</li>
+                    <li>Switch to chosen storage solvent.</li>
+                </ul>
+                <h5>9.2 Storage</h5>
+                <ul>
+                    <li>Short-Term (overnight): Mid-range organic mix (50:50 ACN:Water), 0.1 mL/min.</li>
+                    <li>Long-Term (>2 days): High-organic mix (80:20 ACN:Water).</li>
+                    <li>Never store columns in 100% water or buffer. Cap ends tightly.</li>
+                </ul>
+            </section>
+
+            <!-- Page 10: Routine Troubleshooting -->
+            <section id="part10" class="content-page">
+                <h2>Part 10: Routine Troubleshooting</h2>
+
+                <h4>10.0 Routine Troubleshooting</h4>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr style="background-color: #f2f2f2;">
+                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Symptom</th>
+                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Common Causes</th>
+                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Recommended Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>High / Increasing Pressure</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Blockage (frit, guard column, column inlet)<br>
+                                2. Precipitated buffer salts<br>
+                                3. Sample precipitation
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Disconnect fittings systematically from detector backward<br>
+                                2. Replace guard column<br>
+                                3. Back-flush column if allowed
+                            </td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>No or Small Peaks</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Injector malfunction<br>
+                                2. Wrong vial position<br>
+                                3. Detector lamp off/failing<br>
+                                4. Leak
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Check autosampler for errors<br>
+                                2. Verify vial position<br>
+                                3. Check detector status<br>
+                                4. Inspect fittings for leaks
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>Ghost Peaks</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Carryover<br>
+                                2. Contaminated mobile phase<br>
+                                3. Air bubble
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Run blank, increase needle wash if needed<br>
+                                2. Prepare fresh mobile phase<br>
+                                3. Purge pump thoroughly
+                            </td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>Broad / Split Peaks</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Column voiding/failing<br>
+                                2. Strong sample solvent<br>
+                                3. Guard column clogged<br>
+                                4. Co-elution
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Replace column<br>
+                                2. Use weaker solvent<br>
+                                3. Replace guard column<br>
+                                4. Adjust mobile phase composition
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>Drifting Retention</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Insufficient equilibration<br>
+                                2. Temperature instability<br>
+                                3. Mobile phase evaporation<br>
+                                4. Leaky pump valve
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Increase equilibration time<br>
+                                2. Check oven stability<br>
+                                3. Cap bottles<br>
+                                4. Service pump
+                            </td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>Noisy / Unstable Baseline</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Air bubble<br>
+                                2. Poorly mixed / degassed mobile phase<br>
+                                3. Detector lamp failing<br>
+                                4. Contaminated column
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">
+                                1. Purge & prime pump<br>
+                                2. Prepare & sonicate mobile phase<br>
+                                3. Check lamp<br>
+                                4. Flush system with strong solvent (e.g., isopropanol)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
+
+                
+
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const contentPages = document.querySelectorAll('.content-page');
+
+            function showPage(pageId) {
+                // Hide all content pages
+                contentPages.forEach(page => {
+                    page.classList.remove('active-page');
+                });
+
+                // Deactivate all TOC links
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Show the target content page
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active-page');
+                }
+
+                // Activate the target TOC link
+                const targetLink = document.querySelector(`.toc-link[data-target="${pageId}"]`);
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
+            }
+
+            // Add click event listeners to all TOC links
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.dataset.target;
+                    showPage(targetId);
+                });
+            });
+
+            // Show the first page by default on load
+            showPage('part1');
+        });
+    </script>
+</body>
+</html>
